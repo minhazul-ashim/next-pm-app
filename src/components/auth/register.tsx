@@ -12,8 +12,8 @@ const Register = () => {
   };
   return (
     <div className="myContainer flex min-h-screen items-center justify-center">
-      <div className="p-xl min-h-[350px] w-full rounded-xl border shadow-lg sm:w-[75%] md:w-[50%]">
-        <h2 className="text-primary text-3xl font-medium">Register</h2>
+      <div className="min-h-[350px] w-full rounded-xl border p-xl shadow-lg sm:w-[75%] md:w-[50%]">
+        <h2 className="text-3xl font-medium text-primary">Register</h2>
         <Form
           name="normal_login"
           className="login-form mt-lg"
@@ -21,6 +21,26 @@ const Register = () => {
           onFinish={onFinish}
           size="large"
         >
+          <Form.Item
+            name="firstName"
+            rules={[{ required: true, message: "Please enter first name" }]}
+          >
+            <Input
+              type="text"
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Enter your first name"
+            />
+          </Form.Item>
+          <Form.Item
+            name="lastName"
+            rules={[{ required: true, message: "Please enter your last name" }]}
+          >
+            <Input
+              type="text"
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Enter your last name"
+            />
+          </Form.Item>
           <Form.Item
             name="email"
             rules={[{ required: true, message: "Please enter your Email!" }]}
@@ -54,7 +74,7 @@ const Register = () => {
               Already registered?
               <Link
                 href="/auth/login/"
-                className="text-primary ml-2 block font-medium"
+                className="ml-2 block font-medium text-primary"
               >
                 Login now
               </Link>
