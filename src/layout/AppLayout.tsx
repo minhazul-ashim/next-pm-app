@@ -33,7 +33,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
             padding: 24,
             minHeight: 280,
             background: "#FFFFFF",
-            borderRadius: "24px",
+            borderRadius: "12px",
           }}
         >
           {children}
