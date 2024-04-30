@@ -13,7 +13,7 @@ const Register = () => {
   return (
     <div className="myContainer flex min-h-screen items-center justify-center">
       <div className="p-xl min-h-[350px] w-full rounded-xl border shadow-lg sm:w-[75%] md:w-[50%]">
-        <Title>Register</Title>
+        <h2 className="text-primary text-3xl font-medium">Register</h2>
         <Form
           name="normal_login"
           className="login-form mt-lg"
