@@ -11,8 +11,8 @@ export default function Page() {
     queryFn: () => singleProject(id),
   });
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Tasks />
+    <main className="min-h-screen p-lg">
+      <Tasks data={data} />
     </main>
   );
 }

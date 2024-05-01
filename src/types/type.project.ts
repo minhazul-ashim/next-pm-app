@@ -1,9 +1,14 @@
 import { Member } from "./type.member";
+import { Task, TaskDetail } from "./type.task";
 
-export type Project = {
+export interface Project {
   id: number;
   title: string;
   createdAt: Date;
   updatedAt: Date;
-  creator?: Member;
 };
+
+export interface ProjectDetail extends Project {
+  creator?: Member;
+  tasks?: TaskDetail[];
+}

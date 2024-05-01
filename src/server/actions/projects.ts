@@ -11,7 +11,7 @@ export async function listProjects() {
 }
 
 export async function singleProject(id: string) {
-  const { data }: AxiosResponse<Project[]> = await axios.get(
+  const { data }: AxiosResponse<Project> = await axios.get(
     `http://localhost:3000/api/projects/?id=${id}`,
   );
   return data;
