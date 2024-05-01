@@ -3,9 +3,11 @@ import { UploadOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { userStore } from "@/store/userStore";
 
 const SideMenu = () => {
   const router = useRouter();
+  const { user } = userStore((state) => state);
   return (
     <Menu
       theme="dark"

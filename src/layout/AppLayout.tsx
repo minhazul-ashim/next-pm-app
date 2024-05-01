@@ -21,7 +21,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
             padding: 0,
             background: "#FFFFFF",
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "start",
             alignItems: "center",
           }}
         >
