@@ -14,7 +14,7 @@ const Page = async () => {
     queryFn: listMembers,
   });
   return (
-    <main className="min-h-screen p-lg">
+    <main className="min-h-screen md:p-lg">
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Members />
       </HydrationBoundary>

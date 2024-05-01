@@ -21,7 +21,7 @@ const Members = () => {
           {data?.map((el: Member) => {
             return (
               <Col
-                className="gutter-row"
+                className="gutter-row w-full"
                 key={el.id}
                 sm={{ flex: "100%" }}
                 md={{ flex: "50%" }}
@@ -32,7 +32,7 @@ const Members = () => {
                   hoverable
                   title={`${el.firstName} ${el.lastName}`}
                   bordered={false}
-                  className="border"
+                  className="w-full border"
                 >
                   <p className="text-medium text-sm">Email: {el.email} </p>
                 </Card>

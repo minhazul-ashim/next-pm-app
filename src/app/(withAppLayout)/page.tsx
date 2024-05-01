@@ -13,7 +13,7 @@ export default async function Home() {
     queryFn: listProjects,
   });
   return (
-    <main className="min-h-screen p-lg">
+    <main className="min-h-screen md:p-lg">
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Projects />
       </HydrationBoundary>
