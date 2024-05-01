@@ -48,6 +48,7 @@ const Projects = () => {
               hoverable
               bordered={false}
               className="flex h-full items-center justify-center border"
+              onClick={() => setOpen(true)}
             >
               <h2 className="flex items-center text-lg font-medium">
                 <MdCreateNewFolder

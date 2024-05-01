@@ -10,7 +10,7 @@ export default async function Home() {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["list_projects"],
-    queryFn: listProjects
+    queryFn: listProjects,
   });
   return (
     <main className="min-h-screen p-lg">

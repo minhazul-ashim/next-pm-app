@@ -1,12 +1,17 @@
 import React from "react";
 import { Button, Form, Input, Modal, message } from "antd";
-import { useMutation } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import {
   createProject,
   deleteProject,
   updateProject,
 } from "@/server/actions/projects";
 import { Project } from "@/types/type.project";
+import { useProjectStore } from "@/store/projectStore";
 
 const ViewProjectModal = ({
   open,
@@ -17,9 +22,10 @@ const ViewProjectModal = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   initial: Project;
 }) => {
+  const queryClient = useQueryClient();
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
-
+  const project = useProjectStore((state) => state.project);
   const initialValues = {
     title: initial.title,
     createdBy: null,
@@ -37,13 +43,13 @@ const ViewProjectModal = ({
         duration: 2,
       });
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       messageApi.open({
         type: "success",
         content: "Successfully processed your request",
       });
-      // TODO : Need to check why it is not invalidating
-      // queryClient.invalidateQueries(["singlePost", project.id]);
+      queryClient.invalidateQueries({ queryKey: ["list_projects"] });
+      setOpen(false);
     },
     onError: () => {
       messageApi.open({
@@ -70,9 +76,8 @@ const ViewProjectModal = ({
         type: "success",
         content: "Successfully processed your request",
       });
+      queryClient.invalidateQueries({ queryKey: ["list_projects"] });
       setOpen(false);
-      // TODO : Need to check why it is not invalidating
-      // queryClient.invalidateQueries(["singlePost", project.id]);
     },
     onError: () => {
       messageApi.open({
@@ -113,14 +118,19 @@ const ViewProjectModal = ({
         title="Add New Project"
         onCancel={handleCancel}
         footer={[
+          <Button
+            key="submit"
+            className="bg-red-500"
+            type="primary"
+            onClick={handleDelete}
+          >
+            Delete
+          </Button>,
           <Button key="back" onClick={handleCancel}>
             Return
           </Button>,
           <Button key="submit" type="primary" onClick={handleOk}>
             Submit
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleDelete}>
-            Delete
           </Button>,
         ]}
       >

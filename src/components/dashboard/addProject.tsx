@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Form, Input, Modal, message } from "antd";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createProject } from "@/server/actions/projects";
-import { listMembers } from "@/server/actions/members";
 import { Project } from "@/types/type.project";
 import { userStore } from "@/store/userStore";
+import { redirect } from "next/navigation";
 
 const AddProjectModal = ({
   open,
@@ -13,6 +13,7 @@ const AddProjectModal = ({
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const queryClient = useQueryClient();
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
   const user = userStore((state) => state.user);
@@ -40,7 +41,8 @@ const AddProjectModal = ({
         content: "Successfully processed your request",
       });
       // TODO : Need to check why it is not invalidating
-      // queryClient.invalidateQueries(["singlePost", project.id]);
+      queryClient.invalidateQueries({ queryKey: ["list_projects"] });
+      setOpen(false);
     },
     onError: () => {
       messageApi.open({

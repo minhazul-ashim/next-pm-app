@@ -1,6 +1,11 @@
 import React from "react";
 import { Button, DatePicker, Form, Input, Modal, Select, message } from "antd";
-import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { Task } from "@/types/type.task";
 import { createTask, deleteTask, updateTask } from "@/server/actions/tasks";
 import { ProjectState, useProjectStore } from "@/store/projectStore";
@@ -15,6 +20,7 @@ const ViewTaskModal = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   initial: Task;
 }) => {
+  const queryClient = useQueryClient();
   const project = useProjectStore((state: ProjectState) => state.project);
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
@@ -44,7 +50,7 @@ const ViewTaskModal = ({
         content: "Successfully processed your request",
       });
       // TODO : Need to check why it is not invalidating
-      // queryClient.invalidateQueries(["singlePost", project.id]);
+      queryClient.invalidateQueries({ queryKey: ["singlePost", project.id] });
     },
     onError: () => {
       messageApi.open({
@@ -73,7 +79,7 @@ const ViewTaskModal = ({
       });
       setOpen(false);
       // TODO : Need to check why it is not invalidating
-      // queryClient.invalidateQueries(["singlePost", project.id]);
+      queryClient.invalidateQueries({ queryKey: ["singlePost", project.id] });
     },
     onError: () => {
       messageApi.open({
@@ -121,14 +127,19 @@ const ViewTaskModal = ({
         open={open}
         onCancel={handleCancel}
         footer={[
+          <Button
+            key="submit"
+            className="bg-red-500"
+            type="primary"
+            onClick={handleDelete}
+          >
+            Delete
+          </Button>,
           <Button key="back" onClick={handleCancel}>
             Return
           </Button>,
           <Button key="submit" type="primary" onClick={handleOk}>
             Update
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleDelete}>
-            Delete
           </Button>,
         ]}
       >
