@@ -1,3 +1,5 @@
+"use server";
+
 import { Task } from "@/types/type.task";
 import axios, { AxiosResponse } from "axios";
 
