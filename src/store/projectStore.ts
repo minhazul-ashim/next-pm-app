@@ -10,6 +10,6 @@ export const useProjectStore = create<ProjectState>((set) => ({
   project: {} as ProjectDetail,
   setProject: (project: ProjectDetail) =>
     set(() => ({
-      project: project,
+      project: project, 
     })),
 }));
