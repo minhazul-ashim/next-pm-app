@@ -2,7 +2,7 @@ import { ProjectDetail } from "@/types/type.project";
 import { Col, Row } from "antd";
 import React from "react";
 
-const Tasks = ({ data }: { data: ProjectDetail | undefined }) => {
+const Tasks = () => {
   return (
     <Row className="min-h-screen" gutter={[0, 12]}>
       <Col flex={100} className="border">

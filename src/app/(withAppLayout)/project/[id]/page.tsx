@@ -17,8 +17,8 @@ export default function Page() {
     setProject({ ...data });
   }
   return (
-    <main className="min-h-screen p-lg">
-      <Tasks data={data} />
+    <main className="min-h-screen">
+      <Tasks />
     </main>
   );
 }
