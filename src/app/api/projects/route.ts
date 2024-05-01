@@ -101,9 +101,22 @@ export const DELETE = async (req: NextRequest, res: NextResponse) => {
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
-    const reqObj = await req.json();
-    console.log(reqObj);
-    return NextResponse.json("dfdfd");
+    try {
+      const projects = await fsPromises.readFile(
+        process.cwd() + "/public/mocks/projects.json",
+        "utf8",
+      );
+      const parsedProjects = JSON.parse(projects);
+      const reqBody = await req.json();
+      parsedProjects.push({ id: parsedProjects.length + 1, ...reqBody });
+      await fsPromises.writeFile(
+        process.cwd() + "/public/mocks/projects.json",
+        JSON.stringify(parsedProjects),
+      );
+      return NextResponse.json(reqBody);
+    } catch (e) {
+      return NextResponse.json({ success: false });
+    }
   } catch (e) {
     return NextResponse.json({ success: false });
   }

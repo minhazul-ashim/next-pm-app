@@ -16,3 +16,11 @@ export async function singleProject(id: string) {
   );
   return data;
 }
+
+export async function createProject({ payload }: { payload: Project }) {
+  const { data }: AxiosResponse<Project> = await axios.post(
+    `http://localhost:3000/api/tasks/`,
+    { ...payload },
+  );
+  return data;
+}
