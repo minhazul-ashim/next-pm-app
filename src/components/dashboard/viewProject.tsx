@@ -1,31 +1,34 @@
 import React from "react";
 import { Button, Form, Input, Modal, message } from "antd";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { createProject } from "@/server/actions/projects";
-import { listMembers } from "@/server/actions/members";
+import { useMutation } from "@tanstack/react-query";
+import {
+  createProject,
+  deleteProject,
+  updateProject,
+} from "@/server/actions/projects";
 import { Project } from "@/types/type.project";
 
-const AddProjectModal = ({
+const ViewProjectModal = ({
   open,
   setOpen,
+  initial,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  initial: Project;
 }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
 
-  // TODO : Created by will be retrived from zustand;
-
   const initialValues = {
-    title: "",
+    title: initial.title,
     createdBy: null,
   };
 
-  const createProjectMutation = useMutation({
-    mutationKey: ["create_project_mutation"],
+  const updateProjectMutation = useMutation({
+    mutationKey: ["update_project_mutation"],
     mutationFn: (payload: Project) => {
-      return createProject({ payload });
+      return updateProject({ payload });
     },
     onMutate: () => {
       messageApi.open({
@@ -50,6 +53,35 @@ const AddProjectModal = ({
     },
   });
 
+  const deleteProjectMutaion = useMutation({
+    mutationKey: ["delete_project_mutation"],
+    mutationFn: (id: number) => {
+      return deleteProject(id);
+    },
+    onMutate: () => {
+      messageApi.open({
+        type: "loading",
+        content: "Request Processing",
+        duration: 2,
+      });
+    },
+    onSuccess: () => {
+      messageApi.open({
+        type: "success",
+        content: "Successfully processed your request",
+      });
+      setOpen(false);
+      // TODO : Need to check why it is not invalidating
+      // queryClient.invalidateQueries(["singlePost", project.id]);
+    },
+    onError: () => {
+      messageApi.open({
+        type: "error",
+        content: "Error processing your request",
+      });
+    },
+  });
+
   const handleOk = () => {
     form.submit();
   };
@@ -58,13 +90,19 @@ const AddProjectModal = ({
     setOpen(false);
   };
 
+  // TODO : Created by will be retrived from zustand;
   const onFinish = (values: any) => {
-    createProjectMutation.mutate({
+    updateProjectMutation.mutate({
       ...values,
-      createdBy: 1,
-      createdAt: new Date().toISOString(),
+      id: initial.id,
+      createdBy: initial.createdBy,
+      createdAt: initial.createdAt,
       updatedAt: new Date().toISOString(),
     });
+  };
+
+  const handleDelete = () => {
+    deleteProjectMutaion.mutate(initial.id);
   };
 
   return (
@@ -80,6 +118,9 @@ const AddProjectModal = ({
           </Button>,
           <Button key="submit" type="primary" onClick={handleOk}>
             Submit
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleDelete}>
+            Delete
           </Button>,
         ]}
       >
@@ -102,4 +143,4 @@ const AddProjectModal = ({
   );
 };
 
-export default AddProjectModal;
+export default ViewProjectModal;

@@ -6,6 +6,7 @@ export interface Project {
   title: string;
   createdAt: Date;
   updatedAt: Date;
+  createdBy?: number
 };
 
 export interface ProjectDetail extends Project {

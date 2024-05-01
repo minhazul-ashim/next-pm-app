@@ -81,9 +81,22 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
 
 export const PUT = async (req: NextRequest, res: NextResponse) => {
   try {
-    const reqObj = await req.json();
-    console.log(reqObj);
-    return NextResponse.json("dfdfd");
+    const projects = await fsPromises.readFile(
+      process.cwd() + "/public/mocks/projects.json",
+      "utf8",
+    );
+    const parsedProjects = JSON.parse(projects);
+    const { id, ...rest } = await req.json();
+    console.log(id);
+    const index = parsedProjects.findIndex(
+      (project: Project) => project.id == id,
+    );
+    parsedProjects[index] = { id, ...rest };
+    await fsPromises.writeFile(
+      process.cwd() + "/public/mocks/projects.json",
+      JSON.stringify(parsedProjects),
+    );
+    return NextResponse.json(parsedProjects);
   } catch (e) {
     return NextResponse.json({ success: false });
   }
@@ -91,9 +104,21 @@ export const PUT = async (req: NextRequest, res: NextResponse) => {
 
 export const DELETE = async (req: NextRequest, res: NextResponse) => {
   try {
-    const reqObj = await req.json();
-    console.log(reqObj);
-    return NextResponse.json("dfdfd");
+    const params = req?.url?.split("?")[1]?.split("=")[1];
+    const projects = await fsPromises.readFile(
+      process.cwd() + "/public/mocks/projects.json",
+      "utf8",
+    );
+    const parsedprojects = JSON.parse(projects);
+    const taskIndex = parsedprojects.findIndex(
+      (task: Task) => task.id.toString() == params,
+    );
+    parsedprojects.splice(taskIndex, 1);
+    await fsPromises.writeFile(
+      process.cwd() + "/public/mocks/projects.json",
+      JSON.stringify(parsedprojects),
+    );
+    return NextResponse.json(parsedprojects);
   } catch (e) {
     return NextResponse.json({ success: false });
   }
