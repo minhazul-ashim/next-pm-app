@@ -1,3 +1,5 @@
+"use server"
+
 import { Member } from "@/types/type.member";
 import axios, { AxiosResponse } from "axios";
 
