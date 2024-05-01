@@ -16,11 +16,11 @@ const Completed = () => {
         <Flex
           gap="middle"
           vertical
-          flex={100}
           className="completed border p-sm"
           {...provided.droppableProps}
           ref={provided.innerRef}
         >
+          <h2 className="text-lg font-medium">Completed</h2>
           {completed?.map((el, index) => {
             return (
               <Draggable

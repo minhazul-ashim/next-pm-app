@@ -16,11 +16,11 @@ const Todos = () => {
         <Flex
           gap="middle"
           vertical
-          flex={100}
           className="todo border p-sm"
           {...provided.droppableProps}
           ref={provided.innerRef}
         >
+          <h2 className="text-lg font-medium">Todo</h2>
           {todos?.map((el, index) => {
             return (
               <Draggable
