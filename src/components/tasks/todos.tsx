@@ -16,7 +16,7 @@ const Todos = () => {
         <Flex
           gap="middle"
           vertical
-          className="todo border p-sm"
+          className="todo min-w-[300px] rounded-xl border p-sm"
           {...provided.droppableProps}
           ref={provided.innerRef}
         >

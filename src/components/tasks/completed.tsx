@@ -16,7 +16,7 @@ const Completed = () => {
         <Flex
           gap="middle"
           vertical
-          className="completed border p-sm"
+          className="completed min-w-[300px] rounded-xl border p-sm"
           {...provided.droppableProps}
           ref={provided.innerRef}
         >
