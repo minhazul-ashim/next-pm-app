@@ -3,6 +3,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ConfigProvider } from "antd";
 import React, { useState } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const [queryClient] = useState(
@@ -18,7 +21,8 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ConfigProvider>
       <QueryClientProvider client={queryClient}>
-        {children}</QueryClientProvider>
+        <DndProvider backend={HTML5Backend}>{children}</DndProvider>
+      </QueryClientProvider>
     </ConfigProvider>
   );
 };
