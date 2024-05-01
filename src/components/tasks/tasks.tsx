@@ -1,11 +1,14 @@
 import { useProjectStore } from "@/store/projectStore";
-import { Card, Flex } from "antd";
+import { Flex, Input, Select } from "antd";
 import React from "react";
 import Todos from "./todos";
 import InProgress from "./inprogress";
 import Completed from "./completed";
 import { DragDropContext, DropResult, Droppable } from "@hello-pangea/dnd";
 import { TaskDetail } from "@/types/type.task";
+import { useQuery } from "@tanstack/react-query";
+import { listMembers } from "@/server/actions/members";
+import Filter from "./filters";
 
 interface DragAndDropMapping {
   [key: string]: {
@@ -60,19 +63,22 @@ const Tasks = () => {
     }
   };
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable" type="droppableItem">
-        {(provided) => (
-          <div ref={provided.innerRef}>
-            <Flex className="min-h-screen overflow-auto" gap="middle">
-              <Todos />
-              <InProgress />
-              <Completed />
-            </Flex>
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+    <>
+      <Filter />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="droppable" type="droppableItem">
+          {(provided) => (
+            <div ref={provided.innerRef}>
+              <Flex className="min-h-screen overflow-auto" gap="middle">
+                <Todos />
+                <InProgress />
+                <Completed />
+              </Flex>
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </>
   );
 };
 
