@@ -2,9 +2,7 @@ import { useProjectStore } from "@/store/projectStore";
 import { Card, Flex } from "antd";
 import React from "react";
 import {
-  DragDropContext,
   Draggable,
-  DropResult,
   Droppable,
 } from "@hello-pangea/dnd";
 

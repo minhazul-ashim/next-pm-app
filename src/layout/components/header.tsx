@@ -4,7 +4,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Button } from "antd";
-import { Header } from "antd/es/layout/layout";
 import React from "react";
 
 const HeaderComponent = ({
@@ -28,7 +27,7 @@ const HeaderComponent = ({
       />
       <div className="mr-6 flex items-center">
         <Avatar size="small" icon={<UserOutlined />} />
-        <h2 className="ml-2 inline-block text-lg font-medium">
+        <h2 className="text-md ml-2 inline-block font-medium">
           Minhazul Ashim
         </h2>
       </div>
