@@ -9,6 +9,5 @@ export default function WithAppLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { user } = userStore((state: UserState) => state);
-  return user ? <AppLayout>{children}</AppLayout> : redirect("/auth/login");
+  return <AppLayout>{children}</AppLayout>;
 }

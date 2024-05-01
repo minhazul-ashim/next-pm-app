@@ -1,5 +1,6 @@
 import { Member } from "@/types/type.member";
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 export interface UserState {
   user: Member | null;
