@@ -10,6 +10,7 @@
     "createdAt": "2024-04-30T08:00:00Z",
     "updatedAt": "2024-04-30T10:30:00Z",
     "assignedTo": 1,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-05T12:00:00Z"
   },
   {
@@ -23,6 +24,7 @@
     "createdAt": "2024-04-29T10:15:00Z",
     "updatedAt": "2024-04-30T09:45:00Z",
     "assignedTo": 2,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-08T09:00:00Z"
   },
   {
@@ -36,6 +38,7 @@
     "createdAt": "2024-04-28T14:20:00Z",
     "updatedAt": "2024-04-29T16:00:00Z",
     "assignedTo": 3,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-10T14:30:00Z"
   },
   {
@@ -49,6 +52,7 @@
     "createdAt": "2024-04-27T09:45:00Z",
     "updatedAt": "2024-04-28T11:20:00Z",
     "assignedTo": 4,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-07T16:00:00Z"
   },
   {
@@ -62,6 +66,7 @@
     "createdAt": "2024-04-26T11:30:00Z",
     "updatedAt": "2024-04-27T13:10:00Z",
     "assignedTo": 5,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-09T10:00:00Z"
   },
   {
@@ -75,6 +80,7 @@
     "createdAt": "2024-04-25T08:00:00Z",
     "updatedAt": "2024-04-25T10:30:00Z",
     "assignedTo": 2,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-03T12:00:00Z"
   },
   {
@@ -88,6 +94,7 @@
     "createdAt": "2024-04-24T10:15:00Z",
     "updatedAt": "2024-04-24T09:45:00Z",
     "assignedTo": 3,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-06T09:00:00Z"
   },
   {
@@ -101,6 +108,7 @@
     "createdAt": "2024-04-23T14:20:00Z",
     "updatedAt": "2024-04-23T16:00:00Z",
     "assignedTo": 4,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-12T14:30:00Z"
   },
   {
@@ -114,6 +122,7 @@
     "createdAt": "2024-04-22T09:45:00Z",
     "updatedAt": "2024-04-22T11:20:00Z",
     "assignedTo": 5,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-04T16:00:00Z"
   },
   {
@@ -127,6 +136,7 @@
     "createdAt": "2024-04-21T11:30:00Z",
     "updatedAt": "2024-04-21T13:10:00Z",
     "assignedTo": 1,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-11T10:00:00Z"
   },
   {
@@ -140,6 +150,7 @@
     "createdAt": "2024-04-20T08:00:00Z",
     "updatedAt": "2024-04-20T10:30:00Z",
     "assignedTo": 2,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-13T12:00:00Z"
   },
   {
@@ -153,6 +164,7 @@
     "createdAt": "2024-04-19T10:15:00Z",
     "updatedAt": "2024-04-19T09:45:00Z",
     "assignedTo": 3,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-14T09:00:00Z"
   },
   {
@@ -166,6 +178,7 @@
     "createdAt": "2024-04-18T14:20:00Z",
     "updatedAt": "2024-04-18T16:00:00Z",
     "assignedTo": 4,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-15T14:30:00Z"
   },
   {
@@ -179,6 +192,7 @@
     "createdAt": "2024-04-17T09:45:00Z",
     "updatedAt": "2024-04-17T11:20:00Z",
     "assignedTo": 5,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-16T16:00:00Z"
   },
   {
@@ -192,6 +206,7 @@
     "createdAt": "2024-04-16T11:30:00Z",
     "updatedAt": "2024-04-16T13:10:00Z",
     "assignedTo": 1,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-17T10:00:00Z"
   },
   {
@@ -205,6 +220,7 @@
     "createdAt": "2024-04-15T08:00:00Z",
     "updatedAt": "2024-04-15T10:30:00Z",
     "assignedTo": 2,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-18T12:00:00Z"
   },
   {
@@ -218,6 +234,7 @@
     "createdAt": "2024-04-14T10:15:00Z",
     "updatedAt": "2024-04-14T09:45:00Z",
     "assignedTo": 3,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-19T09:00:00Z"
   },
   {
@@ -231,6 +248,7 @@
     "createdAt": "2024-04-13T14:20:00Z",
     "updatedAt": "2024-04-13T16:00:00Z",
     "assignedTo": 4,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-20T14:30:00Z"
   },
   {
@@ -244,6 +262,7 @@
     "createdAt": "2024-04-12T09:45:00Z",
     "updatedAt": "2024-04-12T11:20:00Z",
     "assignedTo": 5,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-21T16:00:00Z"
   },
   {
@@ -257,6 +276,7 @@
     "createdAt": "2024-04-11T11:30:00Z",
     "updatedAt": "2024-04-11T13:10:00Z",
     "assignedTo": 1,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-22T10:00:00Z"
   },
   {
@@ -270,6 +290,7 @@
     "createdAt": "2024-04-10T08:00:00Z",
     "updatedAt": "2024-04-10T10:30:00Z",
     "assignedTo": 2,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-23T12:00:00Z"
   },
   {
@@ -283,6 +304,7 @@
     "createdAt": "2024-04-09T10:15:00Z",
     "updatedAt": "2024-04-09T09:45:00Z",
     "assignedTo": 3,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-24T09:00:00Z"
   },
   {
@@ -296,6 +318,7 @@
     "createdAt": "2024-04-08T14:20:00Z",
     "updatedAt": "2024-04-08T16:00:00Z",
     "assignedTo": 4,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-25T14:30:00Z"
   },
   {
@@ -309,6 +332,7 @@
     "createdAt": "2024-04-07T09:45:00Z",
     "updatedAt": "2024-04-07T11:20:00Z",
     "assignedTo": 5,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-26T16:00:00Z"
   },
   {
@@ -322,6 +346,7 @@
     "createdAt": "2024-04-06T11:30:00Z",
     "updatedAt": "2024-04-06T13:10:00Z",
     "assignedTo": 1,
+    "description": "Develop a user authentication system for the web application. The system should allow users to sign up, log in, and log out securely. Passwords must be hashed and stored securely in the database. Upon successful authentication, users should be redirected to the dashboard page. Additionally, implement error handling for invalid login attempts and provide appropriate error messages to users.",
     "dueDate": "2024-05-27T10:00:00Z"
   }
 ]
