@@ -50,8 +50,11 @@ const Projects = () => {
               className="flex h-full items-center justify-center border"
             >
               <h2 className="flex items-center text-lg font-medium">
-                <MdCreateNewFolder fontSize={40} className="mr-4" /> Add New
-                Project
+                <MdCreateNewFolder
+                  fontSize={40}
+                  className="mr-4 text-primary"
+                />{" "}
+                Add New Project
               </h2>
             </Card>
           </Col>

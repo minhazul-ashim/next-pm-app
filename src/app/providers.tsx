@@ -16,7 +16,13 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       }),
   );
   return (
-    <ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#9370db",
+        },
+      }}
+    >
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </ConfigProvider>
   );
