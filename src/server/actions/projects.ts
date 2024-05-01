@@ -9,3 +9,10 @@ export async function listProjects() {
   );
   return data;
 }
+
+export async function singleProject(id: string) {
+  const { data }: AxiosResponse<Project[]> = await axios.get(
+    `http://localhost:3000/api/projects/?id=${id}`,
+  );
+  return data;
+}

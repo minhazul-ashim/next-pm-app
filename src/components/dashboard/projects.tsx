@@ -18,7 +18,7 @@ const Projects = () => {
   if (data) {
     return (
       <Row gutter={[12, 12]}>
-        {data.map((el) => {
+        {data?.map((el) => {
           return (
             <Col
               className="gutter-row"
