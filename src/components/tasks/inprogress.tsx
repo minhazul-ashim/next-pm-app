@@ -1,10 +1,8 @@
 import { useProjectStore } from "@/store/projectStore";
-import { Card, Flex } from "antd";
+import { Button, Card, Flex } from "antd";
 import React from "react";
-import {
-  Draggable,
-  Droppable,
-} from "@hello-pangea/dnd";
+import { Draggable, Droppable } from "@hello-pangea/dnd";
+import { BiPlus } from "react-icons/bi";
 
 const InProgress = () => {
   const inprogress = useProjectStore((state) => state.inProgress);
@@ -44,6 +42,15 @@ const InProgress = () => {
               </Draggable>
             );
           })}
+
+          <Button
+            type="default"
+            className="flex items-center justify-center"
+            icon={<BiPlus />}
+            size="large"
+          >
+            Add New Task
+          </Button>
         </Flex>
       )}
     </Droppable>
