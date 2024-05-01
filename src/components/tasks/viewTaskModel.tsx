@@ -2,7 +2,7 @@ import React from "react";
 import { Button, DatePicker, Form, Input, Modal, Select, message } from "antd";
 import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import { Task } from "@/types/type.task";
-import { createTask } from "@/server/actions/tasks";
+import { createTask, updateTask } from "@/server/actions/tasks";
 import { ProjectState, useProjectStore } from "@/store/projectStore";
 import { listMembers } from "@/server/actions/members";
 
@@ -24,36 +24,35 @@ const ViewTaskModal = ({
     description: initial.description,
     assignedTo: initial.assignedTo,
     status: initial.status,
-    };
-    
-  //   const createTaskMutation = useMutation({
-  //     mutationKey: ["create_task_mutation"],
-  //     mutationFn: (payload: Task) => {
-  //       console.log(payload);
-  //       return createTask({ payload });
-  //     },
-  //     onMutate: () => {
-  //       messageApi.open({
-  //         type: "loading",
-  //         content: "Request Processing",
-  //         duration: 2,
-  //       });
-  //     },
-  //     onSuccess: () => {
-  //       messageApi.open({
-  //         type: "success",
-  //         content: "Successfully processed your request",
-  //       });
-  //       // TODO : Need to check why it is not invalidating
-  //       // queryClient.invalidateQueries(["singlePost", project.id]);
-  //     },
-  //     onError: () => {
-  //       messageApi.open({
-  //         type: "error",
-  //         content: "Error processing your request",
-  //       });
-  //     },
-  //   });
+  };
+
+  const updateTaskMutation = useMutation({
+    mutationKey: ["update_task_mutation"],
+    mutationFn: (payload: Task) => {
+      return updateTask({ payload });
+    },
+    onMutate: () => {
+      messageApi.open({
+        type: "loading",
+        content: "Request Processing",
+        duration: 2,
+      });
+    },
+    onSuccess: () => {
+      messageApi.open({
+        type: "success",
+        content: "Successfully processed your request",
+      });
+      // TODO : Need to check why it is not invalidating
+      // queryClient.invalidateQueries(["singlePost", project.id]);
+    },
+    onError: () => {
+      messageApi.open({
+        type: "error",
+        content: "Error processing your request",
+      });
+    },
+  });
 
   const { data: members } = useQuery({
     queryKey: ["listMembers"],
@@ -72,13 +71,14 @@ const ViewTaskModal = ({
 
   const onFinish = (values: any) => {
     values.dueDate = values.dueDate ? values.dueDate.toISOString() : null;
-    // createTaskMutation.mutate({
-    //   ...values,
-    //   status: values.status,
-    //   projectId: project.id,
-    //   createdAt: new Date().toISOString(),
-    //   updatedAt: new Date().toISOString(),
-    // });
+    updateTaskMutation.mutate({
+      ...values,
+      status: values.status,
+      id: initial.id,
+      projectId: project.id,
+      createdAt: initial.createdAt,
+      updatedAt: new Date().toISOString(),
+    });
   };
 
   return (

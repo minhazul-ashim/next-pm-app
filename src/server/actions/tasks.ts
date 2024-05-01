@@ -10,3 +10,11 @@ export async function createTask({ payload }: { payload: Task }) {
   );
   return data;
 }
+
+export async function updateTask({ payload }: { payload: Task }) {
+  const { data }: AxiosResponse<Task> = await axios.put(
+    `http://localhost:3000/api/tasks/`,
+    { ...payload },
+  );
+  return data;
+}
