@@ -1,3 +1,6 @@
+"use client";
+
+import { userStore } from "@/store/userStore";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -13,6 +16,7 @@ const HeaderComponent = ({
   collapsed: boolean;
   setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const { user } = userStore((state) => state);
   return (
     <>
       <Button
@@ -28,7 +32,7 @@ const HeaderComponent = ({
       <div className="mr-6 flex items-center">
         <Avatar size="small" icon={<UserOutlined />} />
         <h2 className="text-md ml-2 inline-block font-medium">
-          Minhazul Ashim
+          {`${user?.firstName} ${user?.lastName}`}
         </h2>
       </div>
     </>
