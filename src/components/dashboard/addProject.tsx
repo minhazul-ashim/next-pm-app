@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { createProject } from "@/server/actions/projects";
 import { listMembers } from "@/server/actions/members";
 import { Project } from "@/types/type.project";
+import { userStore } from "@/store/userStore";
 
 const AddProjectModal = ({
   open,
@@ -14,8 +15,7 @@ const AddProjectModal = ({
 }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
-
-  // TODO : Created by will be retrived from zustand;
+  const user = userStore((state) => state.user);
 
   const initialValues = {
     title: "",
@@ -61,7 +61,7 @@ const AddProjectModal = ({
   const onFinish = (values: any) => {
     createProjectMutation.mutate({
       ...values,
-      createdBy: 1,
+      createdBy: user?.id || 1,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     });
