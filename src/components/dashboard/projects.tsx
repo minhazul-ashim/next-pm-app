@@ -5,7 +5,7 @@ import { Project, ProjectDetail } from "@/types/type.project";
 import { useQuery } from "@tanstack/react-query";
 import { Button, Card, Col, Flex, Row } from "antd";
 import Link from "next/link";
-import React, { MouseEvent, useState } from "react";
+import React, { useState } from "react";
 import { MdCreateNewFolder } from "react-icons/md";
 import AddProjectModal from "./addProject";
 import ViewProjectModal from "./viewProject";
