@@ -12,11 +12,10 @@ export default function Page() {
     queryFn: () => singleProject(id),
   });
   const project = useProjectStore((state) => state.project);
-  const setProject = useProjectStore((state) => state.setProject);
+  const setProject = useProjectStore((state) => state.initializeStates);
   if (isSuccess && !project.id) {
     setProject({ ...data });
   }
-  console.log(project);
   return (
     <main className="min-h-screen p-lg">
       <Tasks data={data} />

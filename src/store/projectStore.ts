@@ -1,15 +1,25 @@
 import { ProjectDetail } from "@/types/type.project";
+import { TaskDetail } from "@/types/type.task";
 import { create } from "zustand";
 
-interface ProjectState {
+export interface ProjectState {
   project: ProjectDetail;
-  setProject: (by: ProjectDetail) => void;
+  todos: TaskDetail[];
+  inProgress: TaskDetail[];
+  completed: TaskDetail[];
+  initializeStates: (by: ProjectDetail) => void;
 }
 
 export const useProjectStore = create<ProjectState>((set) => ({
   project: {} as ProjectDetail,
-  setProject: (project: ProjectDetail) =>
+  todos: [] as TaskDetail[],
+  inProgress: [] as TaskDetail[],
+  completed: [] as TaskDetail[],
+  initializeStates: (project: ProjectDetail) =>
     set(() => ({
-      project: project, 
+      project: project,
+      todos: project?.tasks?.filter(task => task.isTodo),
+      inProgress: project?.tasks?.filter(task => task.inProgress),
+      completed: project?.tasks?.filter(task => task.isComplete)
     })),
 }));
