@@ -2,7 +2,7 @@ import React from "react";
 import { Button, DatePicker, Form, Input, Modal, Select, message } from "antd";
 import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import { Task } from "@/types/type.task";
-import { createTask, updateTask } from "@/server/actions/tasks";
+import { createTask, deleteTask, updateTask } from "@/server/actions/tasks";
 import { ProjectState, useProjectStore } from "@/store/projectStore";
 import { listMembers } from "@/server/actions/members";
 
@@ -54,6 +54,35 @@ const ViewTaskModal = ({
     },
   });
 
+  const deleteTaskMutaion = useMutation({
+    mutationKey: ["delete_task_mutation"],
+    mutationFn: (id: number) => {
+      return deleteTask(id);
+    },
+    onMutate: () => {
+      messageApi.open({
+        type: "loading",
+        content: "Request Processing",
+        duration: 2,
+      });
+    },
+    onSuccess: () => {
+      messageApi.open({
+        type: "success",
+        content: "Successfully processed your request",
+      });
+      setOpen(false);
+      // TODO : Need to check why it is not invalidating
+      // queryClient.invalidateQueries(["singlePost", project.id]);
+    },
+    onError: () => {
+      messageApi.open({
+        type: "error",
+        content: "Error processing your request",
+      });
+    },
+  });
+
   const { data: members } = useQuery({
     queryKey: ["listMembers"],
     queryFn: () => {
@@ -67,6 +96,10 @@ const ViewTaskModal = ({
 
   const handleCancel = () => {
     setOpen(false);
+  };
+
+  const handleDelete = () => {
+    deleteTaskMutaion.mutate(initial.id);
   };
 
   const onFinish = (values: any) => {
@@ -92,7 +125,10 @@ const ViewTaskModal = ({
             Return
           </Button>,
           <Button key="submit" type="primary" onClick={handleOk}>
-            Submit
+            Update
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleDelete}>
+            Delete
           </Button>,
         ]}
       >

@@ -30,13 +30,35 @@ export const PUT = async (req: NextRequest, res: NextResponse) => {
     const parsedTasks = JSON.parse(tasks);
     const { id, ...rest } = await req.json();
     console.log(id);
-    // const taskIndex = parsedTasks.findIndex((task: Task) => task.id == id);
-    // parsedTasks[taskIndex] = { id, ...rest };
-    // await fsPromises.writeFile(
-    //   process.cwd() + "/public/mocks/tasks.json",
-    //   JSON.stringify(parsedTasks),
-    // );
-    // return NextResponse.json(parsedTasks);
+    const taskIndex = parsedTasks.findIndex((task: Task) => task.id == id);
+    parsedTasks[taskIndex] = { id, ...rest };
+    await fsPromises.writeFile(
+      process.cwd() + "/public/mocks/tasks.json",
+      JSON.stringify(parsedTasks),
+    );
+    return NextResponse.json(parsedTasks);
+  } catch (e) {
+    return NextResponse.json({ success: false });
+  }
+};
+
+export const DELETE = async (req: NextRequest, res: NextResponse) => {
+  try {
+    const params = req?.url?.split("?")[1]?.split("=")[1];
+    const tasks = await fsPromises.readFile(
+      process.cwd() + "/public/mocks/tasks.json",
+      "utf8",
+    );
+    const parsedTasks = JSON.parse(tasks);
+    const taskIndex = parsedTasks.findIndex(
+      (task: Task) => task.id.toString() == params,
+    );
+    parsedTasks.splice(taskIndex, 1);
+    await fsPromises.writeFile(
+      process.cwd() + "/public/mocks/tasks.json",
+      JSON.stringify(parsedTasks),
+    );
+    return NextResponse.json(parsedTasks);
   } catch (e) {
     return NextResponse.json({ success: false });
   }

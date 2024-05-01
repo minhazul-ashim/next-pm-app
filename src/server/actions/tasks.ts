@@ -18,3 +18,10 @@ export async function updateTask({ payload }: { payload: Task }) {
   );
   return data;
 }
+
+export async function deleteTask(id: number) {
+  const { data }: AxiosResponse<Task> = await axios.delete(
+    `http://localhost:3000/api/tasks/?id=${id}`,
+  );
+  return data;
+}
