@@ -14,7 +14,7 @@ const InProgress = () => {
         <Flex
           gap="middle"
           vertical
-          className="todo min-w-[300px] rounded-xl border p-sm"
+          className="todo min-w-[300px] rounded-xl border p-xs"
           {...provided.droppableProps}
           ref={provided.innerRef}
         >
@@ -33,8 +33,8 @@ const InProgress = () => {
                     {...provided.dragHandleProps}
                     key={el.id}
                     title={el.name}
-                    bordered={false}
-                    className="w-[280px] shadow-sm"
+                    bordered={true}
+                    className="w-full shadow-sm"
                   >
                     <small>
                       Due Date : {new Date(el.dueDate)?.toLocaleString()}

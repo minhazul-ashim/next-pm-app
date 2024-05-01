@@ -16,7 +16,7 @@ const Completed = () => {
         <Flex
           gap="middle"
           vertical
-          className="completed min-w-[300px] rounded-xl border p-sm"
+          className="completed min-w-[300px] rounded-xl border p-xs"
           {...provided.droppableProps}
           ref={provided.innerRef}
         >
@@ -35,8 +35,8 @@ const Completed = () => {
                     {...provided.dragHandleProps}
                     key={el.id}
                     title={el.name}
-                    bordered={false}
-                    className="w-[280px] shadow-sm"
+                    bordered={true}
+                    className="w-full shadow-sm"
                   >
                     <small>
                       Due Date : {new Date(el.dueDate)?.toLocaleString()}
