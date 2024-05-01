@@ -24,8 +24,10 @@ export const useProjectStore = create<ProjectState>((set) => ({
   initializeStates: (project: ProjectDetail) =>
     set(() => ({
       project: project,
-      todos: project?.tasks?.filter((task) => task.isTodo),
-      inProgress: project?.tasks?.filter((task) => task.inProgress),
-      completed: project?.tasks?.filter((task) => task.isComplete),
+      todos: project?.tasks?.filter((task) => task.status === "todo"),
+      inProgress: project?.tasks?.filter(
+        (task) => task.status === "inprogress",
+      ),
+      completed: project?.tasks?.filter((task) => task.status === "completed"),
     })),
 }));
