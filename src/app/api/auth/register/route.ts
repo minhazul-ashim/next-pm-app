@@ -14,7 +14,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       process.cwd() + "/public/mocks/members.json",
       JSON.stringify(parsed),
     );
-    return NextResponse.json(reqBody);
+    return NextResponse.json({ id: parsed.length + 1, ...reqBody });
   } catch (e) {
     return NextResponse.json({ success: false });
   }

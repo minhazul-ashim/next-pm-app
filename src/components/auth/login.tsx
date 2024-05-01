@@ -26,7 +26,7 @@ const Login = () => {
           content: "Successfully Logged In",
         });
         setUser({ ...res.data });
-        router.push("/");
+        router.push('/')
       } else {
         messageApi.open({
           type: "error",

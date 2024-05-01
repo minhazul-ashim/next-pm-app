@@ -8,26 +8,38 @@ import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
 import { Member } from "@/types/type.member";
 import { register } from "@/server/actions/auth";
+import { userStore } from "@/store/userStore";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+  const router = useRouter()
   const [messageApi, contextHolder] = message.useMessage();
+  const { setUser } = userStore((state) => state);
   const useRegisterMutation = useMutation({
     mutationKey: ["register_mutation"],
     mutationFn: (payload: Member) => {
       return register({ payload });
     },
-    onSuccess: () => {
-      messageApi.open({
-        type: "success",
-        content: "Successfully Logged In",
-      });
-      // TODO : Need to check why it is not invalidating
-      // queryClient.invalidateQueries(["singlePost", project.id]);
+    onSuccess: (res) => {
+      console.log(res)
+      if (res.data.id) {
+        messageApi.open({
+          type: "success",
+          content: "Successfully Logged In",
+        });
+        setUser({ ...res.data });
+        router.push("/");
+      } else {
+        messageApi.open({
+          type: "error",
+          content: "Login Failed",
+        });
+      }
     },
     onError: () => {
       messageApi.open({
         type: "error",
-        content: "Registration Failed",
+        content: "Login Failed",
       });
     },
   });
