@@ -33,5 +33,12 @@
     "lastName": "Nobody",
     "email": "nobody@gmail.com",
     "password": "nobody"
+  },
+  {
+    "id": 6,
+    "firstName": "Md. Minhazul",
+    "lastName": "Haque",
+    "email": "ashim.ashim7470@gmail.com",
+    "password": "ashim12345"
   }
 ]

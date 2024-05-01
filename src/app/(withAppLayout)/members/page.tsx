@@ -13,9 +13,13 @@ const Page = async () => {
     queryKey: ["list_members"],
     queryFn: listMembers,
   });
-    return <HydrationBoundary state={dehydrate(queryClient)}>
-      <Members />
-  </HydrationBoundary>;
+  return (
+    <main className="min-h-screen p-lg">
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Members />
+      </HydrationBoundary>
+    </main>
+  );
 };
 
 export default Page;

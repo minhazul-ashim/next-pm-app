@@ -1,9 +1,5 @@
 "use client";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { UploadOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React from "react";
 import { useRouter } from "next/navigation";
@@ -18,7 +14,7 @@ const SideMenu = () => {
       items={[
         {
           key: "1",
-          icon: <UserOutlined />,
+          icon: <UploadOutlined />,
           onClick: () => router.push("/"),
           label: "Projects",
         },
@@ -28,12 +24,12 @@ const SideMenu = () => {
           onClick: () => router.push("/members"),
           label: "Members",
         },
-        {
-          key: "3",
-          icon: <UploadOutlined />,
-          onClick: () => router.push("/settings"),
-          label: "Settings",
-        },
+        // {
+        //   key: "3",
+        //   icon: <UploadOutlined />,
+        //   onClick: () => router.push("/settings"),
+        //   label: "Settings",
+        // },
       ]}
     />
   );
