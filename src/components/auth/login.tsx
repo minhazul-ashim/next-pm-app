@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
 import Link from "next/link";

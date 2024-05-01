@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import fsPromises from "fs/promises";
 import { Project } from "@/types/type.project";
 import { Member } from "@/types/type.member";
-import type { NextApiRequest, NextApiResponse } from "next";
 import { Task } from "@/types/type.task";
 
 export const getSingleProject = async (params: string) => {
