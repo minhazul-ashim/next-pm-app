@@ -24,7 +24,7 @@ const Tasks = () => {
     setCompleted,
   } = useProjectStore((state) => state);
   const dragAndDropMapping: DragAndDropMapping = {
-    todos: {
+    todo: {
       state: todos,
       setState: setTodos,
     },
@@ -40,17 +40,24 @@ const Tasks = () => {
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) return;
-    const updatedTasks = Array.from(
-      dragAndDropMapping[`${source.droppableId}`].state,
-    );
-    const [removed] = updatedTasks.splice(source.index, 1);
-    removed.status = destination.droppableId;
-    dragAndDropMapping[`${source.droppableId}`].setState(updatedTasks);
-    const destinationArr = Array.from(
-      dragAndDropMapping[`${destination.droppableId}`].state,
-    );
-    destinationArr.splice(destination.index, 0, removed);
-    dragAndDropMapping[`${destination.droppableId}`].setState(destinationArr);
+
+    const sourceTasks = dragAndDropMapping[source.droppableId];
+    const destTasks = dragAndDropMapping[destination.droppableId];
+
+    if (source.droppableId === destination.droppableId) {
+      const reorderedTasks = [...sourceTasks.state];
+      const [removed] = reorderedTasks.splice(source.index, 1);
+      reorderedTasks.splice(destination.index, 0, removed);
+      sourceTasks.setState(reorderedTasks);
+    } else {
+      const sourceTasksCopy = [...sourceTasks.state];
+      const destTasksCopy = [...destTasks.state];
+      const [removed] = sourceTasksCopy.splice(source.index, 1);
+      removed.status = destination.droppableId;
+      destTasksCopy.splice(destination.index, 0, removed);
+      sourceTasks.setState(sourceTasksCopy);
+      destTasks.setState(destTasksCopy);
+    }
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>

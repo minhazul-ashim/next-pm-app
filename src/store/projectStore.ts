@@ -18,9 +18,9 @@ export const useProjectStore = create<ProjectState>((set) => ({
   todos: [] as TaskDetail[],
   setTodos: (todos: TaskDetail[]) => set({ todos }),
   inProgress: [] as TaskDetail[],
-  setInProgress: (todos: TaskDetail[]) => set({ todos }),
+  setInProgress: (inProgress: TaskDetail[]) => set({ inProgress }),
   completed: [] as TaskDetail[],
-  setCompleted: (todos: TaskDetail[]) => set({ todos }),
+  setCompleted: (completed: TaskDetail[]) => set({ completed }),
   initializeStates: (project: ProjectDetail) =>
     set(() => ({
       project: project,

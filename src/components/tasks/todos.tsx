@@ -11,7 +11,7 @@ import {
 const Todos = () => {
   const todos = useProjectStore((state) => state.todos);
   return (
-    <Droppable droppableId="todos">
+    <Droppable droppableId="todo">
       {(provided) => (
         <Flex
           gap="middle"

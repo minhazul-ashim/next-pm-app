@@ -11,7 +11,7 @@ import {
 const Completed = () => {
   const completed = useProjectStore((state) => state.completed);
   return (
-    <Droppable droppableId="completed" type="droppableItem">
+    <Droppable droppableId="completed">
       {(provided) => (
         <Flex
           gap="middle"
