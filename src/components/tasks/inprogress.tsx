@@ -4,10 +4,39 @@ import React, { useState } from "react";
 import { Draggable, Droppable } from "@hello-pangea/dnd";
 import { BiPlus } from "react-icons/bi";
 import AddTaskModal from "./addTaskModal";
+import ViewTaskModal from "./viewTaskModel";
+import { Task } from "@/types/type.task";
 
 const InProgress = () => {
   const inprogress = useProjectStore((state) => state.inProgress);
   const [open, setOpen] = useState<boolean>(false);
+  const [view, setView] = useState<boolean>(false);
+  const [initialData, setInitialData] = useState({} as Task);
+  const openViewModal = (el: Task) => {
+    const {
+      id,
+      status,
+      name,
+      description,
+      assignedTo,
+      dueDate,
+      projectId,
+      createdAt,
+      updatedAt,
+    } = el;
+    setView(true);
+    setInitialData({
+      id,
+      status,
+      name,
+      description,
+      assignedTo,
+      dueDate,
+      projectId,
+      createdAt,
+      updatedAt,
+    });
+  };
   return (
     <>
       <Droppable droppableId="inprogress">
@@ -36,6 +65,7 @@ const InProgress = () => {
                       title={el.name}
                       bordered={true}
                       className="w-full shadow-sm"
+                      onClick={() => openViewModal(el)}
                     >
                       <small>
                         Due Date : {new Date(el.dueDate)?.toLocaleString()}
@@ -59,6 +89,7 @@ const InProgress = () => {
         )}
       </Droppable>
 
+      <ViewTaskModal open={view} setOpen={setView} initial={initialData} />
       <AddTaskModal open={open} setOpen={setOpen} />
     </>
   );
