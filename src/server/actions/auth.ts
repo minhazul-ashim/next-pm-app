@@ -1,14 +1,18 @@
 "use server";
 
 import { Member } from "@/types/type.member";
-import axios, { AxiosResponse } from "axios";
 
 export const register = async ({ payload }: { payload: Member }) => {
-  const res: AxiosResponse<Member> = await axios.post(
-    `${process.env.BASE_URL}/api/auth/register`,
-    { ...payload },
-  );
-  return res;
+  const res = await fetch(`${process.env.BASE_URL}/api/auth/register`, {
+    method: "POST",
+    cache: "no-store",
+    body: JSON.stringify({ ...payload }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+  return data;
 };
 
 export const login = async ({
@@ -16,9 +20,14 @@ export const login = async ({
 }: {
   payload: { email: string; password: string };
 }) => {
-  const res: AxiosResponse<Member> = await axios.post(
-    `${process.env.BASE_URL}/api/auth/login`,
-    { ...payload },
-  );
-  return res;
+  const res = await fetch(`${process.env.BASE_URL}/api/auth/login`, {
+    method: "POST",
+    cache: "no-store",
+    body: JSON.stringify({ ...payload }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+  return data;
 };

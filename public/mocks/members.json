@@ -43,15 +43,15 @@
   },
   {
     "id": 7,
-    "firstName": "John",
-    "lastName": "Doe ",
+    "firstName": "Mister",
+    "lastName": "Nobody ",
     "email": "john1@doe.com",
     "password": "johndoe"
   },
   {
     "id": 8,
-    "firstName": "John",
-    "lastName": "Doe ",
+    "firstName": "Nobody",
+    "lastName": "Mister ",
     "email": "john2@doe.com",
     "password": "johndoe"
   }

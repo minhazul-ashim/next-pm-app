@@ -1,11 +1,12 @@
 "use server";
 
-import { Member } from "@/types/type.member";
-import axios, { AxiosResponse } from "axios";
-
 export async function listMembers() {
-  const { data }: AxiosResponse<Member[]> = await axios.get(
-    `${process.env.BASE_URL}/api/members/`,
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/members/`, {
+      method: 'GET',
+    cache: 'no-store',
+    }
   );
+  const data = await res.json();
   return data;
 }

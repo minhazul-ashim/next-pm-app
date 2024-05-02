@@ -123,7 +123,7 @@ export const PUT = async (req: NextRequest, res: NextResponse) => {
     );
     const parsedProjects = JSON.parse(projects);
     const { id, ...rest } = await req.json();
-    console.log(id);
+    console.log(id, rest);
     const index = parsedProjects.findIndex(
       (project: Project) => project.id == id,
     );
