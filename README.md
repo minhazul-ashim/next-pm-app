@@ -6,10 +6,11 @@ I focused on the functionality more than styling.
 
 ## Setup Instructions and CLI
 
-git clone "repo_ssh or https",
-cd "repo name"
-npm install / yarn install
-npm run dev / yarn dev
+- git clone "repo_ssh or https",
+- cd "repo name"
+- create an .env file, and add BASE_URL=http://localhost:3000
+- npm install / yarn install
+- npm run dev / yarn dev
 
 ---
 
@@ -37,7 +38,7 @@ npm run dev / yarn dev
 
 - Used Two different --ROUTE GROUPS-- for well described and consistent layout. One is AuthLayout and the other one is main AppLayout, and the other one is Root Layout, all the obvious resources are imported in the Root Layout inside which is used application wide.
 
--- I have a declared a dedicated --providers.tsx-- inside the root app directory file to organize all the context providers for the application so that my base layout file doesn't get too much cluttered.
+- I have a declared a dedicated --providers.tsx-- inside the root app directory file to organize all the context providers for the application so that my base layout file doesn't get too much cluttered.
 
 - Used --API Routes-- for mocking the REST API's which just reads and writes. Tried to maintain consisment naming patterns.
 
