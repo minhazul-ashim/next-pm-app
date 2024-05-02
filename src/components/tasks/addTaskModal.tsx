@@ -5,6 +5,7 @@ import { Task } from "@/types/type.task";
 import { createTask } from "@/server/actions/tasks";
 import { ProjectState, useProjectStore } from "@/store/projectStore";
 import { listMembers } from "@/server/actions/members";
+import { Member } from "@/types/type.member";
 
 const AddTaskModal = ({
   open,
@@ -116,7 +117,7 @@ const AddTaskModal = ({
           <Form.Item name="assignedTo" label="Assign To">
             <Select>
               {members?.length
-                ? members.map((el) => {
+                ? members.map((el: Member) => {
                     return (
                       <Select.Option key={el.id} value={el.id}>
                         {el.firstName}

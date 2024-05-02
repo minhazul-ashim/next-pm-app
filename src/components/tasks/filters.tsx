@@ -1,5 +1,6 @@
 import { listMembers } from "@/server/actions/members";
 import { useProjectStore } from "@/store/projectStore";
+import { Member } from "@/types/type.member";
 import { useQuery } from "@tanstack/react-query";
 import { Flex, Input, Select } from "antd";
 import React from "react";
@@ -42,7 +43,7 @@ const Filter = () => {
           placeholder="Filter By Assignee"
           onChange={(e) => filterByAssignee(e)}
         >
-          {data?.map((el) => {
+          {data?.map((el : Member) => {
             return (
               <Select.Option
                 key={el.id}
