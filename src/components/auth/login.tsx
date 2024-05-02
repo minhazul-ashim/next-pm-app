@@ -20,13 +20,14 @@ const Login = () => {
       return login({ payload });
     },
     onSuccess: (res) => {
-      if (res.data.id) {
+      console.log(res);
+      if (res.id) {
         messageApi.open({
           type: "success",
           content: "Successfully Logged In",
         });
         setUser({ ...res.data });
-        router.push('/')
+        router.push("/");
       } else {
         messageApi.open({
           type: "error",

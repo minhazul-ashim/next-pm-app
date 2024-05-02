@@ -11,7 +11,7 @@ import { userStore } from "@/store/userStore";
 import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
   const { setUser } = userStore((state) => state);
   const useRegisterMutation = useMutation({
@@ -20,8 +20,8 @@ const Register = () => {
       return register({ payload });
     },
     onSuccess: (res) => {
-      console.log(res)
-      if (res.data.id) {
+      console.log(res);
+      if (res.id) {
         messageApi.open({
           type: "success",
           content: "Successfully Logged In",

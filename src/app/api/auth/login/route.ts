@@ -11,8 +11,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
     );
     const parsed = JSON.parse(members);
     const auth = parsed.find((el: Member) => el.email === reqBody.email);
+    console.log(auth);
     if (auth.password === reqBody.password) {
       return NextResponse.json(auth);
+    } else {
+      return NextResponse.json({ success: false });
     }
   } catch (e) {
     return NextResponse.json({ success: false });

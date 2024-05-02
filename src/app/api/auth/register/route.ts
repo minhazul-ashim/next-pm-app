@@ -10,6 +10,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     );
     const parsed = JSON.parse(members);
     parsed.push({ id: parsed.length + 1, ...reqBody });
+    console.log(parsed);
     await fsPromises.writeFile(
       process.cwd() + "/public/mocks/members.json",
       JSON.stringify(parsed),
