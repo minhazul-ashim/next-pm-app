@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from "axios";
 
 export async function listMembers() {
   const { data }: AxiosResponse<Member[]> = await axios.get(
-    "http://localhost:3000/api/members/",
+    `${process.env.BASE_URL}/api/members/`,
   );
   return data;
 }

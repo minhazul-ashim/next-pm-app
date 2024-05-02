@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from "axios";
 
 export async function createTask({ payload }: { payload: Task }) {
   const { data }: AxiosResponse<Task> = await axios.post(
-    `http://localhost:3000/api/tasks/`,
+    `${process.env.BASE_URL}/api/tasks/`,
     { ...payload },
   );
   return data;
@@ -13,7 +13,7 @@ export async function createTask({ payload }: { payload: Task }) {
 
 export async function updateTask({ payload }: { payload: Task }) {
   const { data }: AxiosResponse<Task> = await axios.put(
-    `http://localhost:3000/api/tasks/`,
+    `${process.env.BASE_URL}/api/tasks/`,
     { ...payload },
   );
   return data;
@@ -21,7 +21,7 @@ export async function updateTask({ payload }: { payload: Task }) {
 
 export async function deleteTask(id: number) {
   const { data }: AxiosResponse<Task> = await axios.delete(
-    `http://localhost:3000/api/tasks/?id=${id}`,
+    `${process.env.BASE_URL}/api/tasks/?id=${id}`,
   );
   return data;
 }
