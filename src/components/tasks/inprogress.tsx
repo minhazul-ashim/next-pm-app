@@ -64,6 +64,7 @@ const InProgress = () => {
                       key={el.id}
                       title={el.name}
                       bordered={true}
+                      hoverable
                       className="w-full shadow-sm"
                       onClick={() => openViewModal(el)}
                     >

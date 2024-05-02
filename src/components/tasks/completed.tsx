@@ -62,6 +62,7 @@ const Completed = () => {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       key={el.id}
+                      hoverable
                       title={el.name}
                       bordered={true}
                       className="w-full shadow-sm"

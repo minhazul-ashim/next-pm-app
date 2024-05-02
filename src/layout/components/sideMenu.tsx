@@ -1,13 +1,11 @@
 "use client";
-import { UploadOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import { UploadOutlined, UserOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { userStore } from "@/store/userStore";
 
 const SideMenu = () => {
   const router = useRouter();
-  const { user } = userStore((state) => state);
   return (
     <Menu
       theme="dark"
@@ -22,16 +20,10 @@ const SideMenu = () => {
         },
         {
           key: "2",
-          icon: <VideoCameraOutlined />,
+          icon: <UserOutlined />,
           onClick: () => router.push("/members"),
           label: "Members",
         },
-        // {
-        //   key: "3",
-        //   icon: <UploadOutlined />,
-        //   onClick: () => router.push("/settings"),
-        //   label: "Settings",
-        // },
       ]}
     />
   );

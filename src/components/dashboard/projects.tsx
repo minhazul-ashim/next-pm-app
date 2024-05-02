@@ -38,19 +38,19 @@ const Projects = () => {
       <>
         <Row gutter={[12, 12]}>
           <Col
-            className="gutter-row"
+            className="gutter-row w-full"
             sm={{ flex: "100%" }}
             md={{ flex: "50%" }}
-            lg={{ flex: "33%" }}
+            lg={{ flex: "33.33%" }}
             xl={{ flex: "20%" }}
           >
             <Card
               hoverable
               bordered={false}
-              className="flex h-full items-center justify-center border"
+              className="flex h-full w-full items-center justify-center border"
               onClick={() => setOpen(true)}
             >
-              <h2 className="flex items-center text-lg font-medium">
+              <h2 className="text-md flex items-center font-medium md:text-lg">
                 <MdCreateNewFolder
                   fontSize={40}
                   className="mr-4 text-primary"

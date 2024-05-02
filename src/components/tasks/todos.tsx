@@ -64,6 +64,7 @@ const Todos = () => {
                         {...provided.dragHandleProps}
                         key={el.id}
                         title={el.name}
+                        hoverable
                         bordered={true}
                         className="w-full shadow-sm"
                         onClick={() => openViewModal(el)}

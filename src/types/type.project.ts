@@ -1,5 +1,5 @@
 import { Member } from "./type.member";
-import { Task, TaskDetail } from "./type.task";
+import { TaskDetail } from "./type.task";
 
 export interface Project {
   id: number;

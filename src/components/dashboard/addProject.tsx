@@ -4,7 +4,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createProject } from "@/server/actions/projects";
 import { Project } from "@/types/type.project";
 import { userStore } from "@/store/userStore";
-import { redirect } from "next/navigation";
 
 const AddProjectModal = ({
   open,

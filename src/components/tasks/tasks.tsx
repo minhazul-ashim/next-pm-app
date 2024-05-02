@@ -1,13 +1,11 @@
 import { useProjectStore } from "@/store/projectStore";
-import { Flex, Input, Select } from "antd";
+import { Flex } from "antd";
 import React from "react";
 import Todos from "./todos";
 import InProgress from "./inprogress";
 import Completed from "./completed";
 import { DragDropContext, DropResult, Droppable } from "@hello-pangea/dnd";
 import { TaskDetail } from "@/types/type.task";
-import { useQuery } from "@tanstack/react-query";
-import { listMembers } from "@/server/actions/members";
 import Filter from "./filters";
 
 interface DragAndDropMapping {
